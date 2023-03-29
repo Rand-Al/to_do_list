@@ -1,0 +1,9 @@
+.form {
+  @apply flex container mx-auto max-w-2xl gap-10 mb-14;
+}
+.input {
+  @apply flex-auto px-4 focus:outline-none focus:scale-105 transition-all rounded;
+}
+.button {
+  @apply px-5 py-2 bg-red-700 rounded cursor-pointer text-white hover:bg-red-400 font-semibold transition-all hover:scale-103 active:scale-100;
+}
