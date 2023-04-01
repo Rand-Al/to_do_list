@@ -1,4 +1,4 @@
 .header {
-  @apply text-white h-12 flex mx-auto font-bold items-center justify-center bg-grey-blue mb-10 bg-opacity-60 text-2xl;
+  @apply text-white h-12 flex mx-auto font-bold items-center justify-center bg-grey-blue mb-10 bg-opacity-60 text-2xl w-full;
   text-shadow: 1px 1px 1px #00000046;
 }

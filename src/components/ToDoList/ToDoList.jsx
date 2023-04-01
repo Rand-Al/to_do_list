@@ -3,6 +3,7 @@ import s from "./ToDoList.module.css";
 const ToDoList = ({ toDo, setToDo }) => {
   const [isEdit, setIsEdit] = useState("");
   const [value, setValue] = useState("");
+  const [filtered, setFiltered] = useState(toDo);
   const deleteItem = (itemId) => {
     const newToDo = [...toDo].filter((item) => item.id !== itemId);
     setToDo(newToDo);
@@ -12,7 +13,7 @@ const ToDoList = ({ toDo, setToDo }) => {
       if (item.id === itemId) {
         item.status = !item.status;
       }
-      return item; //? Зачем нужно возвращать?
+      return item;
     });
     setToDo(newToDo);
   };
@@ -30,10 +31,40 @@ const ToDoList = ({ toDo, setToDo }) => {
     setToDo(newToDo);
     setIsEdit(false);
   };
+  const filteredToDo = (status) => {
+    if (status === "all") {
+      setFiltered(toDo);
+    } else {
+      const newFiltered = [...toDo].filter((obj) => {
+        return obj.status === status;
+      });
+      setFiltered(newFiltered);
+    }
+  };
   if (toDo.length > 0) {
     return (
       <div className={s.main}>
-        {toDo.map((item) => (
+        <div className=" flex gap-2 justify-end mb-2">
+          <button
+            className={`${s.shadow} ${s.filter}`}
+            onClick={() => filteredToDo(true)}
+          >
+            Opened
+          </button>
+          <button
+            className={`${s.shadow} ${s.filter}`}
+            onClick={() => filteredToDo(false)}
+          >
+            Closed
+          </button>
+          <button
+            className={`${s.shadow} ${s.filter}`}
+            onClick={() => filteredToDo("all")}
+          >
+            All
+          </button>
+        </div>
+        {filtered.map((item) => (
           <div key={item.id} className=" flex gap-3">
             {isEdit === item.id ? (
               <div className="bg-white flex-auto h-9 rounded">

@@ -32,3 +32,6 @@
 .shadow {
   box-shadow: 1px 1px #000;
 }
+.filter {
+  @apply bg-slate-600 px-2 rounded text-white;
+}

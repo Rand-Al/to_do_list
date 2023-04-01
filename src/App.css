@@ -10,3 +10,6 @@ body {
   @apply bg-slate-800;
   text-shadow: rgba(0, 0, 0, 0.315);
 }
+.App {
+  min-height: 100vh;
+}

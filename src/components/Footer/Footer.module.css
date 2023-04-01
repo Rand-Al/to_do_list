@@ -1,0 +1,7 @@
+.footer {
+  @apply bg-grey-blue bg-opacity-60;
+}
+.date {
+  @apply container mx-auto text-center h-12 flex items-center justify-center text-white font-semibold;
+  text-shadow: 1px 1px 1px #00000046;
+}
